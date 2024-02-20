@@ -1,0 +1,61 @@
+{
+  "name": "zmodem-ts",
+  "version": "1.0.1",
+  "description": "A ts fork of FGasper/zmodemjs",
+  "author": "ZHAO Xudong <zxdong@gmail.com>",
+  "license": "MIT",
+  "main": "dist/zmodem.js",
+  "module": "esm/zmodem.mjs",
+  "types": "dist/zmodem.d.ts",
+  "scripts": {
+    "build": "npm run clean && npm run build:commonjs && npm run build:esm",
+    "build:commonjs": "tsc && npm run append-export",
+    "append-export": "echo \"\nmodule.exports = Zmodem;\" >> dist/zmodem.js",
+    "clean": "rm -rf dist esm",
+    "rename": "./bin/rename",
+    "build:esm": "tsc -p tsconfig.mjs.json && npm run rename",
+    "prepublishOnly": "npm run build",
+    "lint": "./node_modules/.bin/ts-standard --verbose",
+    "fix": "./node_modules/.bin/ts-standard --fix",
+    "beta": "npm publish --tag=beta"
+  },
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/jest": "^29.5.2",
+    "@types/node": "^20.4.0",
+    "ts-standard": "^12.0.2",
+    "typescript": "^5.1.3"
+  },
+  "files": [
+    "src",
+    "dist",
+    "esm",
+    "LICENSE",
+    "tsconfig.json",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/electerm/zmodem-ts.git"
+  },
+  "keywords": [
+    "sync",
+    "js",
+    "zmodem"
+  ],
+  "bugs": {
+    "url": "https://github.com/electerm/zmodem-ts/issues"
+  },
+  "homepage": "https://github.com/electerm/zmodem-ts#readme",
+  "standard": {
+    "sourceType": "module",
+    "ignore": [
+      "/dist",
+      "esm",
+      "temp"
+    ]
+  },
+  "dependencies": {
+    "crc-32": "^1.2.2"
+  }
+}
