@@ -180,8 +180,7 @@ class ZmodemSendSession extends ZmodemSessionBase {
 
   _consume_ZRINIT (hdr: ZmodemHeader): void {
     this._last_ZRINIT = hdr
-    const size = hdr.get_buffer_size()
-    console.log('szie', size)
+    const size = hdr.get_buffer_size() as string
     if (size !== undefined) {
       throw new Error(`Buffer size ( ${size} ) is unsupported!`)
     }

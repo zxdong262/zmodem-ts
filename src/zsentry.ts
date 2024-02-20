@@ -156,7 +156,6 @@ class ZmodemSentry {
     let toTerminal = input
 
     if (newSession !== undefined && newSession !== null) {
-      console.log('newSession', newSession)
       const replacementDetect = !(this._parsed_session == null)
 
       if (replacementDetect) {

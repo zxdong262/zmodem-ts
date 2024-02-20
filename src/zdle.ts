@@ -54,7 +54,6 @@ class ZmodemZDLE {
    */
   encode (octets: number[]): number[] {
     // NB: Performance matters here!
-    console.log('this._zdle_table', this._zdle_table)
     if (this._zdle_table === undefined) {
       throw new Error('No ZDLE encode table configured!')
     }
