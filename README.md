@@ -348,6 +348,11 @@ class Term extends Component {
 
 ```
 
+## todos
+
+- Add tests
+- Add more examples
+
 ## License
 
 MIT
