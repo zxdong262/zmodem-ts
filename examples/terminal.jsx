@@ -1,7 +1,7 @@
 import AttachAddon from './addon-zmodem'
 
 export class Term extends Component {
-  componentDidMount() {
+  componentDidMount () {
     this.zmodemAddon = new AddonZmodem()
     term.loadAddon(this.zmodemAddon)
   }
