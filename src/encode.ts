@@ -32,9 +32,9 @@ export const ZmodemEncodeLib = {
 
     return [
       number & 0xff,
-      (number & 65535) >> 8,
+      (number & 65535) >> (8),
       highBytes & 0xff,
-      highBytes >> 8
+      highBytes >> (8)
     ]
   },
 
@@ -46,7 +46,7 @@ export const ZmodemEncodeLib = {
    * @returns {number} The unpacked value.
    */
   unpack_u16_be (bytesArr: number[]): number {
-    return (bytesArr[0] << 8) + bytesArr[1]
+    return (bytesArr[0] << (8)) + bytesArr[1]
   },
 
   /**
@@ -56,6 +56,7 @@ export const ZmodemEncodeLib = {
    *
    * @returns {number} The unpacked value.
    */
+
   unpack_u32_le (octets: number[]): number {
     return octets[0] + (octets[1] << 8) + (octets[2] << 16) + (octets[3] * 16777216)
   },

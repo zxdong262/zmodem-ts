@@ -14,8 +14,19 @@ describe('pack_u16_be', () => {
 })
 describe('pack_u32_le', () => {
   it('should correctly pack a 32-bit number', () => {
-    const packed = ZmodemEncodeLib.pack_u32_le(12345678)
-    expect(packed).toEqual([78, 185, 230, 0]) // Expected packed values
+    const testCases = [
+      { input: 0, expected: [0, 0, 0, 0] },
+      { input: 1, expected: [1, 0, 0, 0] },
+      { input: 256, expected: [0, 1, 0, 0] },
+      { input: 65536, expected: [0, 0, 1, 0] },
+      { input: 4294967295, expected: [255, 255, 255, 255] }
+    ]
+
+    for (const testCase of testCases) {
+      const result = ZmodemEncodeLib.pack_u32_le(testCase.input)
+      console.log(testCase.input, result)
+      expect(result).toEqual(testCase.expected)
+    }
   })
 })
 describe('unpack_u16_be', () => {
@@ -26,19 +37,36 @@ describe('unpack_u16_be', () => {
 })
 describe('unpack_u32_le', () => {
   it('should correctly unpack a little-endian 32-bit number', () => {
-    const unpacked = ZmodemEncodeLib.unpack_u32_le([78, 185, 230, 0])
-    expect(unpacked).toBe(12345678) // Expected unpacked value
+    const testCases = [
+      { expected: 0, input: [0, 0, 0, 0] },
+      { expected: 1, input: [1, 0, 0, 0] },
+      { expected: 256, input: [0, 1, 0, 0] },
+      { expected: 65536, input: [0, 0, 1, 0] },
+      { expected: 4294967295, input: [255, 255, 255, 255] }
+    ]
+
+    for (const testCase of testCases) {
+      const result = ZmodemEncodeLib.unpack_u32_le(testCase.input)
+      console.log(testCase.input, result)
+      expect(result).toEqual(testCase.expected)
+    }
   })
 })
 describe('octets_to_hex', () => {
   it('should convert octets to their hex representation', () => {
-    const hex = ZmodemEncodeLib.octets_to_hex([15, 42, 128])
-    expect(hex).toEqual([102, 97, 50]) // Expected hex values
+    const hex = ZmodemEncodeLib.octets_to_hex([0, 1, 2, 3])
+    expect(hex).toEqual([
+      48, 48, 48, 49,
+      48, 50, 48, 51
+    ]) // Expected hex values
   })
 })
 describe('parse_hex_octets', () => {
   it('should correctly parse hex octets', () => {
-    const parsed = ZmodemEncodeLib.parse_hex_octets([102, 97, 50])
-    expect(parsed).toEqual([15, 42, 128]) // Expected parsed values
+    const parsed = ZmodemEncodeLib.parse_hex_octets([
+      48, 48, 48, 49,
+      48, 50, 48, 51
+    ])
+    expect(parsed).toEqual([0, 1, 2, 3]) // Expected parsed values
   })
 })
