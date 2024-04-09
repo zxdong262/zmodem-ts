@@ -1,6 +1,6 @@
 {
   "name": "zmodem-ts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A ts fork of FGasper/zmodemjs",
   "author": "ZHAO Xudong <zxdong@gmail.com>",
   "license": "MIT",

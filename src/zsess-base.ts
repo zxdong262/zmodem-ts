@@ -96,7 +96,8 @@ class ZmodemSessionBase extends _Eventer {
         this._on_session_end()
         return
       } else {
-        throw new Error('PROTOCOL: Only thing after ZFIN should be “OO” (79,79), not: ' + this._input_buffer.join())
+        console.error('PROTOCOL: Only thing after ZFIN should be “OO” (79,79), not: ' + this._input_buffer.join())
+        return
       }
     }
 
