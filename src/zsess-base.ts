@@ -171,7 +171,7 @@ class ZmodemSessionBase extends _Eventer {
       : undefined
     if (handler === undefined) {
       console.error('Unhandled header!', newHeader, this._next_header_handler)
-      throw new ZmodemError('Unhandled header: ' + newHeader.NAME)
+      return
     }
     this._next_header_handler = null
     handler.call(this, newHeader)
