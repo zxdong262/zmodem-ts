@@ -1,6 +1,6 @@
 {
   "name": "zmodem-ts",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A ts fork of FGasper/zmodemjs",
   "author": "ZHAO Xudong <zxdong@gmail.com>",
   "license": "MIT",
@@ -39,7 +39,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/electerm/zmodem-ts.git"
+    "url": "git+https://github.com/zxdong262/zmodem-ts.git"
   },
   "keywords": [
     "sync",
@@ -47,9 +47,9 @@
     "zmodem"
   ],
   "bugs": {
-    "url": "https://github.com/electerm/zmodem-ts/issues"
+    "url": "https://github.com/zxdong262/zmodem-ts/issues"
   },
-  "homepage": "https://github.com/electerm/zmodem-ts#readme",
+  "homepage": "https://github.com/zxdong262/zmodem-ts#readme",
   "standard": {
     "sourceType": "module",
     "ignore": [
