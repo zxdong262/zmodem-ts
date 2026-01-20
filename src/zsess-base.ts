@@ -212,7 +212,18 @@ class ZmodemSessionBase extends _Eventer {
 
   _strip_and_enqueue_input (input: number[]): void {
     ZMLIB.stripIgnoredBytes(input)
-    this._input_buffer.push.apply(this._input_buffer, input)
+    // Avoid push.apply() which causes stack overflow with large arrays
+    // Instead, use a chunked approach or direct array assignment
+    const len = input.length
+    if (len === 0) return
+
+    // For large arrays, extending with concat or loop is more efficient
+    // and avoids call stack limits
+    const bufferLen = this._input_buffer.length
+    this._input_buffer.length = bufferLen + len
+    for (let i = 0; i < len; i++) {
+      this._input_buffer[bufferLen + i] = input[i]
+    }
   }
 
   abort (): void {

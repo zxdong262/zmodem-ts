@@ -158,7 +158,13 @@ class ZmodemSubpacket extends ZmodemSubpacketBase {
 
     const gotCrc = ZmodemZDLE.splice(bytesArr, 2, crcLen)
     if (gotCrc == null) {
-      bytesArr.unshift.apply(bytesArr, zdleEncodedPayload)
+      // Restore the payload bytes without using unshift.apply which could overflow
+      // for large payloads
+      const restored = zdleEncodedPayload.concat(bytesArr.splice(0))
+      bytesArr.length = 0
+      for (let i = 0; i < restored.length; i++) {
+        bytesArr[i] = restored[i]
+      }
 
       return
     }

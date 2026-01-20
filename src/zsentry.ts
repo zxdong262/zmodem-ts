@@ -246,7 +246,14 @@ class ZmodemSentry {
   _parse = (arrayLike: number[] | Uint8Array): null | ZmodemSession => {
     const cache = this._cache
 
-    cache.push(...arrayLike)
+    // Avoid spread operator which causes stack overflow with large arrays
+    // Use a loop-based approach instead
+    const len = arrayLike.length
+    const cacheLen = cache.length
+    cache.length = cacheLen + len
+    for (let i = 0; i < len; i++) {
+      cache[cacheLen + i] = arrayLike[i]
+    }
 
     const commonHexAt = ZMLIB.findSubarray(cache, COMMON_ZM_HEX_START)
     if (commonHexAt === -1) {
