@@ -1,6 +1,0 @@
-#!/bin/bash
-cd `dirname $0`
-cd ..
-for file in esm/*.js; do
-    mv "$file" "${file%.js}.mjs"
-done

@@ -1,19 +1,16 @@
 {
   "name": "zmodem-ts",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A ts fork of FGasper/zmodemjs",
   "author": "ZHAO Xudong <zxdong@gmail.com>",
   "license": "MIT",
-  "main": "dist/zmodem.js",
-  "module": "esm/zmodem.mjs",
+  "type": "module",
+  "main": "dist/zmodem.cjs",
+  "module": "dist/zmodem.js",
   "types": "dist/zmodem.d.ts",
   "scripts": {
-    "build": "npm run clean && npm run build:commonjs && npm run build:esm",
-    "build:commonjs": "tsc && npm run append-export",
-    "append-export": "echo \"\nmodule.exports = Zmodem;\" >> dist/zmodem.js",
-    "clean": "rm -rf dist esm",
-    "rename": "./bin/rename",
-    "build:esm": "tsc -p tsconfig.mjs.json && npm run rename",
+    "build": "vite build --config bin/vite.config.js && tsc",
+    "clean": "rm -rf dist",
     "prepublishOnly": "npm run build",
     "lint": "./node_modules/.bin/ts-standard --verbose",
     "fix": "./node_modules/.bin/ts-standard --fix",
@@ -27,12 +24,12 @@
     "jest": "^29.7.0",
     "ts-jest": "^29.1.2",
     "ts-standard": "^12.0.2",
-    "typescript": "^5.1.3"
+    "typescript": "^5.1.3",
+    "vite": "^7.3.1"
   },
   "files": [
     "src",
     "dist",
-    "esm",
     "LICENSE",
     "tsconfig.json",
     "README.md"
@@ -54,7 +51,6 @@
     "sourceType": "module",
     "ignore": [
       "/dist",
-      "esm",
       "temp",
       "examples"
     ]
