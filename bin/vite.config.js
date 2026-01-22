@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   build: {
+    emptyOutDir: true, // This will clean dist/ before building
     lib: {
       entry: 'src/zmodem.ts',
       formats: ['es', 'cjs'],
