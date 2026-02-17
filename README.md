@@ -24,6 +24,13 @@ Check the [examples](./examples) folder. Or just check how to use [https://githu
 
 Check out the complete demo project: [zmodem-ts-demo](https://github.com/zxdong262/zmodem-ts-demo)
 
+## Recommendation
+
+If you're looking for other ZModem solutions for JavaScript/TypeScript, consider these projects ported from zmodem2 Rust:
+
+- https://github.com/zxdong262/zmodem2-js
+- https://github.com/zxdong262/zmodem2-wasm
+
 ## Todos
 
 - Add more tests

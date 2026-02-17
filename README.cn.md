@@ -24,6 +24,13 @@ npm i -D zmodem-ts
 
 查看完整的演示项目：[zmodem-ts-demo](https://github.com/zxdong262/zmodem-ts-demo)
 
+## 推荐
+
+如果你在寻找适用于 JavaScript/TypeScript 的其他 ZModem 解决方案，可以看看以下移植于 zmodem2 Rust 的项目：
+
+- https://github.com/zxdong262/zmodem2-js
+- https://github.com/zxdong262/zmodem2-wasm
+
 ## 待办事项
 
 - 添加更多测试
