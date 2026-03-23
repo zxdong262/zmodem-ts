@@ -2,6 +2,8 @@
 
 [中文](README.cn.md) | [English](README.md)
 
+> ⚠️ **提示：** 如果你在寻找更稳定、持续维护的 JavaScript/TypeScript ZModem 解决方案，请使用 [zmodem2-js](https://github.com/zxdong262/zmodem2-js)。zmodem2-js是 zmodem2 Rust crate 的移植版本，提供更好的性能和可靠性。
+
 这是 [https://github.com/FGasper/zmodemjs](https://github.com/FGasper/zmodemjs) 的 TypeScript 分支版本。
 
 使用 TypeScript 重写（除了 browser.js），为用户提供更现代的代码库，应该能获得一点性能提升。
@@ -23,13 +25,6 @@ npm i -D zmodem-ts
 ## 演示
 
 查看完整的演示项目：[zmodem-ts-demo](https://github.com/zxdong262/zmodem-ts-demo)
-
-## 推荐
-
-如果你在寻找适用于 JavaScript/TypeScript 的其他 ZModem 解决方案，可以看看以下移植于 zmodem2 Rust 的项目：
-
-- https://github.com/zxdong262/zmodem2-js
-- https://github.com/zxdong262/zmodem2-wasm
 
 ## 待办事项
 

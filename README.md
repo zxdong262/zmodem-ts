@@ -2,6 +2,8 @@
 
 [中文](README.cn.md) | [English](README.md)
 
+> ⚠️ **Note:** If you're looking for a more solid and actively maintained ZModem solution for JavaScript/TypeScript, please use [zmodem2-js](https://github.com/zxdong262/zmodem2-js) instead. zmodem2-js is a port of the zmodem2 Rust crate and provides better performance and reliability.
+
 It is a ts fork of [https://github.com/FGasper/zmodemjs](https://github.com/FGasper/zmodemjs).
 
 Just rewrite with ts(except for browser.js), provide a more modern code base for users,  should gain a little bit performance.
@@ -23,13 +25,6 @@ Check the [examples](./examples) folder. Or just check how to use [https://githu
 ## Demo
 
 Check out the complete demo project: [zmodem-ts-demo](https://github.com/zxdong262/zmodem-ts-demo)
-
-## Recommendation
-
-If you're looking for other ZModem solutions for JavaScript/TypeScript, consider these projects ported from zmodem2 Rust:
-
-- https://github.com/zxdong262/zmodem2-js
-- https://github.com/zxdong262/zmodem2-wasm
 
 ## Todos
 
